@@ -1,0 +1,16 @@
+# Pastas do React (Frontend)
+node_modules/
+dist/
+.env
+
+# Pastas do Python/Django (Backend)
+venv/
+.venv/
+__pycache__/
+*.pyc
+db.sqlite3
+.env
+
+# Arquivos do Sistema (Mac/Windows)
+.DS_Store
+Thumbs.db

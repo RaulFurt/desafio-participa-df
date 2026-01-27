@@ -1,0 +1,153 @@
+/* --- Variáveis (Mantidas) --- */
+:root {
+  --ouv-blue-dark: #003399;
+  --ouv-blue-header: #1351B4;
+  --ouv-bg-gray: #f5f7fa;
+  --ouv-text: #333;
+  --ouv-border: #e1e4e8;
+  --ouv-green: #28a745;
+}
+
+body, html, #root {
+  height: 100%;
+  margin: 0;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--ouv-bg-gray);
+  color: var(--ouv-text);
+  overflow-x: hidden;
+}
+
+/* Faixa Azul de Fundo */
+.blue-banner-top {
+  background: linear-gradient(135deg, #003399 0%, #0055cc 100%);
+  height: 220px; /* Um pouco mais alto para caber a mascote */
+  width: 100%;
+  position: absolute;
+  top: 0; left: 0; z-index: 0;
+}
+
+/* Container Central */
+.main-container-center {
+  position: relative; z-index: 1;
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 15px;
+}
+
+/* Card Branco */
+.form-box-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  overflow: hidden;
+}
+
+/* --- CABEÇALHO COM A IZA --- */
+.form-header-blue {
+  background-color: var(--ouv-blue-header);
+  color: white;
+  padding: 25px 40px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+}
+
+/* Avatar da Robô */
+.iza-avatar-circle {
+  width: 70px;
+  height: 70px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  border: 3px solid #6fa3ff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  flex-shrink: 0;
+}
+
+/* Títulos e Balão */
+.header-text-area h2 {
+  margin: 0 0 5px 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.header-text-area p {
+  margin: 0;
+  font-size: 1rem;
+  opacity: 0.9;
+  line-height: 1.4;
+}
+
+/* --- CORPO E INPUTS --- */
+.form-body-content { padding: 40px; }
+
+.steps-indicator { display: flex; gap: 8px; margin-bottom: 30px; }
+.step-bar { height: 6px; flex: 1; background: #e9ecef; border-radius: 4px; transition: background 0.3s; }
+.step-bar.active { background: var(--ouv-blue-header); }
+
+.form-group { margin-bottom: 20px; }
+.label-ouv { display: block; font-weight: 600; margin-bottom: 8px; color: #444; }
+.required-mark { color: #dc3545; margin-left: 3px; }
+
+.input-ouv {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+.input-ouv:focus { border-color: var(--ouv-blue-header); outline: 3px solid rgba(19, 81, 180, 0.1); }
+textarea.input-ouv { height: 140px; resize: vertical; }
+
+/* Cards Seleção */
+.selection-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.ouv-card-btn {
+  padding: 20px;
+  border: 1px solid #ddd;
+  background: #fdfdfd;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s;
+}
+.ouv-card-btn:hover { border-color: var(--ouv-blue-header); background: #fff; transform: translateY(-2px); }
+.ouv-card-btn.selected { border: 2px solid var(--ouv-blue-header); background: #f0f7ff; }
+
+/* Rodapé */
+.form-footer-actions {
+  padding: 20px 40px 30px 40px;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #eee;
+  background: #fff;
+}
+
+.btn-ouv {
+  padding: 12px 30px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+}
+.btn-back { background: #e9ecef; color: #555; }
+.btn-next { background: var(--ouv-blue-header); color: white; }
+.btn-success { background: var(--ouv-green); color: white; }
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .blue-banner-top { height: 150px; }
+  .main-container-center { margin-top: 20px; padding: 0 10px; }
+  .form-header-blue { padding: 20px; flex-direction: column; text-align: center; }
+  .selection-grid { grid-template-columns: 1fr; }
+  .form-footer-actions { flex-direction: column-reverse; gap: 15px; }
+  .btn-ouv { width: 100%; justify-content: center; }
+}

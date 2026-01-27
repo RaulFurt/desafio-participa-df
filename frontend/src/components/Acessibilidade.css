@@ -1,0 +1,152 @@
+/* --- Botão Flutuante --- */
+.btn-acessibilidade-float {
+  position: fixed;
+  right: 20px;
+  bottom: 100px; /* Acima do botão de chat se houver */
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #003366; /* Azul Escuro Gov */
+  color: white;
+  border: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  cursor: pointer;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+
+.btn-acessibilidade-float:hover {
+  transform: scale(1.1);
+}
+
+/* --- Painel Lateral --- */
+.painel-acessibilidade {
+  position: fixed;
+  right: 20px;
+  bottom: 160px;
+  width: 300px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  z-index: 9999;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  font-family: sans-serif;
+}
+
+.painel-header {
+  background: #003366;
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.painel-header h3 { margin: 0; font-size: 1rem; }
+.btn-fechar { background: transparent; border: none; color: white; cursor: pointer; }
+
+.painel-secao {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.painel-secao h4 {
+  margin: 0 0 10px 0;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+}
+
+/* Controles de Fonte */
+.controles-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f0f0f0;
+  border-radius: 8px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.controles-row button {
+  padding: 5px 15px;
+  border: none;
+  background: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-full {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #003366;
+  background: white;
+  color: #003366;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-full.ativo {
+  background: #003366;
+  color: white;
+}
+
+.painel-footer {
+  padding: 10px;
+  text-align: center;
+  background: #f9f9f9;
+  color: #888;
+}
+
+/* --- MODO ALTO CONTRASTE (Amarelo e Preto) --- */
+body.alto-contraste {
+  background-color: #000 !important;
+  color: #ffff00 !important; /* Amarelo acessível */
+}
+
+body.alto-contraste .sidebar, 
+body.alto-contraste .main-content,
+body.alto-contraste .input-gov,
+body.alto-contraste textarea,
+body.alto-contraste .card-btn,
+body.alto-contraste .footer-actions {
+  background-color: #000 !important;
+  color: #ffff00 !important;
+  border-color: #ffff00 !important;
+}
+
+body.alto-contraste h1,
+body.alto-contraste h2,
+body.alto-contraste h3,
+body.alto-contraste label,
+body.alto-contraste p,
+body.alto-contraste .logo-area small {
+  color: #ffff00 !important;
+}
+
+/* Botões no Alto Contraste */
+body.alto-contraste button {
+  background-color: #000 !important;
+  border: 2px solid #ffff00 !important;
+  color: #ffff00 !important;
+}
+
+body.alto-contraste .iza-avatar {
+  background-color: #333 !important;
+  color: #ffff00 !important;
+}
+
+/* Animação */
+@keyframes slideLeft {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.anime-slide-left { animation: slideLeft 0.3s ease-out; }

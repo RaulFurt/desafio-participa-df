@@ -1,0 +1,24 @@
+:root {
+  /* Mantemos as cores padrão caso precise */
+  --gov-blue: #1351B4;
+  --gov-yellow: #FFCD07;
+  --gov-text: #333333;
+  --gov-bg: #f8f9fa;
+}
+
+/* RESET TOTAL (Essencial para o Menu Lateral funcionar) */
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Rawline', 'Segoe UI', Tahoma, sans-serif;
+  background-color: #fff;
+  overflow-x: hidden; /* Evita rolagem lateral indesejada */
+}
+
+/* Foco visível (Obrigatório WCAG) */
+button:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 3px solid var(--gov-yellow);
+  outline-offset: 2px;
+}
