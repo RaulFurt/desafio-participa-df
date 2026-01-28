@@ -2,12 +2,10 @@ import { useEffect } from 'react';
 
 export default function VLibras() {
   useEffect(() => {
-    // Injeta o script do VLibras dinamicamente
     const script = document.createElement('script');
     script.src = 'https://vlibras.gov.br/app/vlibras-plugin.js';
     script.async = true;
     script.onload = () => {
-      // Inicializa o widget após carregar
       if (window.VLibras) {
         new window.VLibras.Widget('https://vlibras.gov.br/app');
       }
@@ -20,7 +18,6 @@ export default function VLibras() {
   }, []);
 
   return (
-    // Estrutura HTML exigida pelo VLibras
     <div vw="true" className="enabled">
       <div vw-access-button="true" className="active"></div>
       <div vw-plugin-wrapper="true">

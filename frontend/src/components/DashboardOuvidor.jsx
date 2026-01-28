@@ -5,7 +5,6 @@ export default function DashboardOuvidor() {
   const [manifestacoes, setManifestacoes] = useState([]);
 
   useEffect(() => {
-    // Em produção, isso exigiria autenticação!
     axios.get('http://127.0.0.1:8000/api/manifestacoes/')
       .then(res => setManifestacoes(res.data))
       .catch(err => console.error(err));

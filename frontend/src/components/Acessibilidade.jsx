@@ -7,12 +7,10 @@ export default function Acessibilidade() {
   const [fonte, setFonte] = useState(100); // % de tamanho
   const [contraste, setContraste] = useState(false);
 
-  // Aplica o Zoom na fonte
   useEffect(() => {
     document.documentElement.style.fontSize = `${fonte}%`;
   }, [fonte]);
 
-  // Aplica o Alto Contraste
   useEffect(() => {
     if (contraste) {
       document.body.classList.add('alto-contraste');
@@ -23,7 +21,6 @@ export default function Acessibilidade() {
 
   return (
     <>
-      {/* Botão Flutuante (Lado Direito) */}
       <button 
         className="btn-acessibilidade-float"
         onClick={() => setAberto(!aberto)}
@@ -32,8 +29,6 @@ export default function Acessibilidade() {
       >
         <Eye size={24} />
       </button>
-
-      {/* Painel Lateral (Igual ao print) */}
       {aberto && (
         <div className="painel-acessibilidade anime-slide-left">
           <div className="painel-header">

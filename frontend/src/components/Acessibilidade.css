@@ -1,12 +1,11 @@
-/* --- Botão Flutuante --- */
 .btn-acessibilidade-float {
   position: fixed;
   right: 20px;
-  bottom: 100px; /* Acima do botão de chat se houver */
+  bottom: 100px;
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: #003366; /* Azul Escuro Gov */
+  background-color: #003366;
   color: white;
   border: none;
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
@@ -22,7 +21,6 @@
   transform: scale(1.1);
 }
 
-/* --- Painel Lateral --- */
 .painel-acessibilidade {
   position: fixed;
   right: 20px;
@@ -63,7 +61,6 @@
   font-size: 0.9rem;
 }
 
-/* Controles de Fonte */
 .controles-row {
   display: flex;
   justify-content: space-between;
@@ -106,47 +103,114 @@
   color: #888;
 }
 
-/* --- MODO ALTO CONTRASTE (Amarelo e Preto) --- */
-body.alto-contraste {
-  background-color: #000 !important;
-  color: #ffff00 !important; /* Amarelo acessível */
+/* --- MODO ALTO CONTRASTE (TUDO PRETO / TEXTO BRANCO) --- */
+
+/* 1. REGRA GERAL: Força Fundo Preto e Texto Branco em TUDO */
+body.alto-contraste,
+body.alto-contraste #root,
+body.alto-contraste .main-container-center,
+body.alto-contraste .blue-banner-top,
+body.alto-contraste .navbar-gov,
+body.alto-contraste .form-box-card,   /* Card agora é PRETO */
+body.alto-contraste .form-body-content,
+body.alto-contraste .form-footer-actions,
+body.alto-contraste .form-header-blue,
+body.alto-contraste .painel-acessibilidade,
+body.alto-contraste .painel-header,
+body.alto-contraste .controles-row {
+  background: #000000 !important; /* Remove qualquer cor/gradiente */
+  background-color: #000000 !important;
+  color: #FFFFFF !important;
+  border-color: #FFFFFF !important;
+  box-shadow: none !important;
 }
 
-body.alto-contraste .sidebar, 
-body.alto-contraste .main-content,
-body.alto-contraste .input-gov,
+/* 2. Bordas Brancas (Essencial para ver os limites no fundo preto) */
+body.alto-contraste .blue-banner-top,
+body.alto-contraste .form-box-card,
+body.alto-contraste .form-header-blue {
+  border: 2px solid #FFFFFF !important;
+  border-radius: 0 !important; /* Reto para maior nitidez */
+}
+
+/* 3. Todos os Textos (Força Branco Puro) */
+body.alto-contraste h1, body.alto-contraste h2, body.alto-contraste h3, 
+body.alto-contraste h4, body.alto-contraste p, body.alto-contraste span, 
+body.alto-contraste label, body.alto-contraste a, body.alto-contraste small,
+body.alto-contraste strong, body.alto-contraste b {
+  color: #FFFFFF !important;
+  text-shadow: none !important;
+}
+
+/* 4. Campos de Formulário (Input, Select, Textarea) */
+body.alto-contraste input,
 body.alto-contraste textarea,
-body.alto-contraste .card-btn,
-body.alto-contraste .footer-actions {
-  background-color: #000 !important;
-  color: #ffff00 !important;
-  border-color: #ffff00 !important;
+body.alto-contraste select {
+  background-color: #000000 !important; /* Fundo Preto */
+  color: #FFFFFF !important; /* Texto Branco */
+  border: 2px solid #FFFFFF !important; /* Borda Branca */
+  border-radius: 0 !important;
 }
 
-body.alto-contraste h1,
-body.alto-contraste h2,
-body.alto-contraste h3,
-body.alto-contraste label,
-body.alto-contraste p,
-body.alto-contraste .logo-area small {
-  color: #ffff00 !important;
+/* Placeholder (Texto de dica) */
+body.alto-contraste ::placeholder {
+  color: #FFFFFF !important;
+  opacity: 0.7;
 }
 
-/* Botões no Alto Contraste */
-body.alto-contraste button {
-  background-color: #000 !important;
-  border: 2px solid #ffff00 !important;
-  color: #ffff00 !important;
+/* Foco (Quando clica no campo) */
+body.alto-contraste input:focus,
+body.alto-contraste textarea:focus,
+body.alto-contraste select:focus {
+  outline: 3px solid #FFFFFF !important;
+  background-color: #222 !important; /* Cinza bem escuro */
 }
 
-body.alto-contraste .iza-avatar {
+/* 5. Botões e Cards de Seleção */
+body.alto-contraste button,
+body.alto-contraste .btn-ouv,
+body.alto-contraste .ouv-card-btn {
+  background-color: #000000 !important;
+  color: #FFFFFF !important;
+  border: 2px solid #FFFFFF !important;
+  border-radius: 4px !important;
+  font-weight: bold !important;
+}
+
+/* Hover e Selecionado (INVERTE: Fica Branco com Texto Preto) */
+/* Isso dá o feedback visual de que você clicou */
+body.alto-contraste button:hover,
+body.alto-contraste .btn-ouv:hover,
+body.alto-contraste .ouv-card-btn:hover,
+body.alto-contraste .ouv-card-btn.selected {
+  background-color: #FFFFFF !important; /* Fundo Branco */
+  color: #000000 !important; /* Texto Preto */
+  cursor: pointer;
+  box-shadow: 0 0 10px #FFFFFF !important; /* Brilho */
+}
+
+/* 6. Barra de Progresso */
+body.alto-contraste .step-bar {
   background-color: #333 !important;
-  color: #ffff00 !important;
+  border: 1px solid #FFFFFF !important;
+}
+body.alto-contraste .step-bar.active {
+  background-color: #FFFFFF !important; /* A etapa ativa fica branca */
 }
 
-/* Animação */
-@keyframes slideLeft {
-  from { opacity: 0; transform: translateX(20px); }
-  to { opacity: 1; transform: translateX(0); }
+/* 7. Imagens e Ícones */
+/* Ícones ficam brancos */
+body.alto-contraste svg {
+  stroke: #FFFFFF !important;
+  color: #FFFFFF !important;
 }
-.anime-slide-left { animation: slideLeft 0.3s ease-out; }
+/* Avatar IZA */
+body.alto-contraste .iza-avatar-circle {
+  border-color: #FFFFFF !important;
+  background: #000 !important;
+  color: #FFF !important;
+}
+/* Logo do Governo (Filtro para ficar BRANCA) */
+body.alto-contraste .logo-cgdf {
+  filter: brightness(0) invert(1) !important; /* Vira branca pura */
+}

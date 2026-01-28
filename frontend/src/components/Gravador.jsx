@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import './Gravador.css'; // Importando o CSS específico
+import './Gravador.css'; 
 
 export default function Gravador({ aoSalvarAudio }) {
   const [gravando, setGravando] = useState(false);
@@ -9,11 +9,10 @@ export default function Gravador({ aoSalvarAudio }) {
 
   const iniciarGravacao = async () => {
     try {
-      // Pede permissão ao navegador
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       
       mediaRecorderRef.current = new MediaRecorder(stream);
-      audioChunksRef.current = []; // Limpa gravações anteriores
+      audioChunksRef.current = []; 
 
       mediaRecorderRef.current.ondataavailable = (event) => {
         if (event.data.size > 0) {
@@ -22,12 +21,10 @@ export default function Gravador({ aoSalvarAudio }) {
       };
 
       mediaRecorderRef.current.onstop = () => {
-        // Cria o arquivo de áudio (Blob)
         const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/wav' });
         const url = URL.createObjectURL(audioBlob);
         setAudioURL(url);
         
-        // Envia o arquivo BLOB para o componente pai (Formulário)
         aoSalvarAudio(audioBlob);
       };
 
@@ -42,7 +39,6 @@ export default function Gravador({ aoSalvarAudio }) {
   const pararGravacao = () => {
     mediaRecorderRef.current.stop();
     setGravando(false);
-    // Para todas as faixas de áudio (desliga a luzinha do microfone no navegador)
     mediaRecorderRef.current.stream.getTracks().forEach(track => track.stop());
   };
 
@@ -73,7 +69,7 @@ export default function Gravador({ aoSalvarAudio }) {
             className="btn-descartar"
             aria-label="Apagar áudio e gravar novamente"
           >
-            🗑 Descartar
+            Descartar
           </button>
         </div>
       )}
