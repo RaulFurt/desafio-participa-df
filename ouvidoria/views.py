@@ -2,7 +2,7 @@ from rest_framework import viewsets
 from rest_framework.parsers import MultiPartParser, FormParser
 from .models import Manifestacao
 from .serializers import ManifestacaoSerializer
-from .services import analisar_manifestacao_iza # <--- Importe o serviço
+from .services import analisar_manifestacao_iza
 
 class ManifestacaoViewSet(viewsets.ModelViewSet):
     queryset = Manifestacao.objects.all().order_by('-data_criacao')
@@ -10,7 +10,6 @@ class ManifestacaoViewSet(viewsets.ModelViewSet):
     parser_classes = (MultiPartParser, FormParser)
 
     def perform_create(self, serializer):
-        # Salva primeiro para gerar os arquivos no disco
         instancia = serializer.save()
         
         # Chama a "IA" para classificar o relato recém-criado

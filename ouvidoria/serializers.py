@@ -5,7 +5,7 @@ class ManifestacaoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Manifestacao
         fields = '__all__'
-        read_only_fields = ['protocolo', 'data_criacao'] # O usuário não pode editar isso
+        read_only_fields = ['protocolo', 'data_criacao'] 
 
     def validate(self, data):
         """
@@ -15,4 +15,5 @@ class ManifestacaoSerializer(serializers.ModelSerializer):
         if data.get('anonimo'):
             data['nome'] = "Anônimo"
             data['email'] = ""
+            data['telefone'] = ""
         return data

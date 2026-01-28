@@ -14,21 +14,21 @@ class Manifestacao(models.Model):
     anonimo = models.BooleanField(default=False)
     nome = models.CharField(max_length=100, blank=True, null=True)
     email = models.EmailField(blank=True, null=True)
+    telefone = models.CharField(max_length=20, blank=True, null=True)
 
-    # Arquivos Multimídia (Conforme Edital)
     audio = models.FileField(upload_to='audios/', blank=True, null=True)
     imagem = models.ImageField(upload_to='imagens/', blank=True, null=True)
     video = models.FileField(upload_to='videos/', blank=True, null=True)  # <--- NOVO CAMPO
 
     data_criacao = models.DateTimeField(auto_now_add=True)
     
-    # Campo para simular retorno da IZA (Classificação automática)
     classificacao_ia = models.CharField(max_length=100, blank=True, null=True)
 
     def save(self, *args, **kwargs):
         if self.anonimo:
             self.nome = None
             self.email = None
+            self.telefone = None
         super().save(*args, **kwargs)
 
     def __str__(self):

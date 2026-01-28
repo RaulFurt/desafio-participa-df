@@ -8,7 +8,7 @@ def analisar_manifestacao_iza(texto, audio_path=None):
     """
     print(f"[IZA AI] Iniciando análise...")
     
-    # Simula tempo de processamento da IA
+    # Simula tempo de processamento da IA   
     time.sleep(1) 
     
     # Se tiver áudio, finge que transcreveu

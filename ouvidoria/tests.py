@@ -30,4 +30,4 @@ class ManifestacaoTests(TestCase):
         self.client.post(self.url, data, format='multipart')
         
         obj = Manifestacao.objects.last()
-        self.assertIsNotNone(obj.classificacao_ia) # O campo não pode estar vazio
+        self.assertIsNotNone(obj.classificacao_ia) 
