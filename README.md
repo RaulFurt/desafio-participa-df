@@ -5,6 +5,8 @@ O **Participa DF - Módulo de Ouvidoria** é uma plataforma moderna, acessível 
 
 ---
 
+Link do vídeo no youtube: https://www.youtube.com/watch?v=Are_iHde5V8
+
 ## 🎯 Objetivo da Solução
 Facilitar o registro de denúncias, elogios, sugestões e reclamações, oferecendo uma interface intuitiva ("One Page"), suporte a mídias ricas (áudio/vídeo) e garantia de acessibilidade, preparada para integração nativa com o ecossistema de IA do GDF (IZA).
 
@@ -127,6 +129,13 @@ npm run dev
 # O frontend rodará em: http://localhost:5173
 
 ## 🤖 Declaração de Uso de Inteligência Artificial
-Conforme o **Item 13.9 do Edital**, declaramos que:
-1. **No Desenvolvimento:** Utilizamos Grandes Modelos de Linguagem (LLMs) para auxílio na estruturação do código, otimização de funções CSS e geração de testes unitários - Modelo GEMINI 2.5 PRO.
-2. **Na Solução:** A arquitetura prevê integração com o sistema **IZA**, simulada no backend (`services.py`) para classificação automática de manifestações baseada em processamento de linguagem natural.
+Conforme o Item 13.9 do Edital, declaramos que:
+1. No Desenvolvimento:** Utilizamos Grandes Modelos de Linguagem (LLMs) para auxílio na estruturação do código, otimização de funções CSS e geração de testes unitários - Modelo GEMINI 2.5 PRO.
+IZA, simulada no backend (`services.py`) para classificação automática de manifestações baseada em processamento de linguagem natural.
+
+
+Participantes: 
+
+RAUL FURTADO COSTA
+
+HERUS MACEDO PINTO FURTADO COSTA
